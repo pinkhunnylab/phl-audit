@@ -940,6 +940,10 @@
     document.getElementById('emailCapture').classList.remove('active');
     document.getElementById('resultsSection').classList.add('active');
 
+    // Get email and name
+    const firstName = document.getElementById('firstName').value;
+    const email = document.getElementById('emailInput').value;
+
     // Calculate scores
     const sectionScores = sectionQuestions.map((qs, i) => {
       return qs.reduce((sum, q) => sum + (answers[q] || 0), 0);
