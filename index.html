@@ -3,21 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Amazon Listing Audit Pink Hunny Lab</title>
+<title>Amazon Listing Audit — Pink Hunny Lab</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap');
 
   :root {
-    --pink: #E8914A;
-    --pink-deep: #C4633A;
-    --pink-light: #FAF7F2;
-    --pink-mid: #E8DDD0;
+    --orange: #E8914A;
+    --orange-deep: #C4633A;
+    --beige: #FAF7F2;
+    --beige-mid: #E8DDD0;
     --black: #1C1A17;
     --gray: #6B6358;
     --gray-light: #F5F2EE;
     --white: #FFFFFF;
     --green: #4CAF82;
-    --orange: #E8914A;
     --red: #D95F5F;
   }
 
@@ -25,32 +24,9 @@
 
   body {
     font-family: 'DM Sans', sans-serif;
-    background: var(--pink-light);
+    background: var(--beige);
     color: var(--black);
     min-height: 100vh;
-  }
-
-  .site-header { display: none; }
-
-  .logo {
-    font-family: 'DM Serif Display', serif;
-    font-size: 20px;
-    color: #C4633A;
-    letter-spacing: -0.3px;
-    display: block;
-    text-align: center;
-    width: 100%;
-  }
-
-  .logo span {
-    color: var(--black);
-    font-style: italic;
-  }
-
-  .tagline {
-    font-size: 13px;
-    color: var(--gray);
-    margin-left: auto;
   }
 
   .container {
@@ -59,90 +35,72 @@
     padding: 48px 24px 80px;
   }
 
-  .hero {
-    text-align: center;
-    margin-bottom: 48px;
-  }
+  .hero { text-align: center; margin-bottom: 48px; }
 
   .hero-eyebrow {
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: #C4633A;
+    color: var(--orange-deep);
     margin-bottom: 16px;
   }
 
   .hero h1 {
     font-family: 'DM Serif Display', serif;
-    font-size: clamp(32px, 5vw, 48px);
+    font-size: clamp(28px, 5vw, 44px);
     line-height: 1.15;
     color: var(--black);
     margin-bottom: 16px;
   }
 
-  .hero h1 em {
-    font-style: italic;
-    color: #C4633A;
-  }
+  .hero h1 em { font-style: italic; color: var(--orange-deep); }
 
   .hero p {
-    font-size: 17px;
+    font-size: 16px;
     color: var(--gray);
     line-height: 1.6;
     max-width: 520px;
     margin: 0 auto;
   }
 
-  /* Progress bar */
   .progress-wrap {
     background: var(--white);
     border-radius: 16px;
     padding: 20px 28px;
     margin-bottom: 32px;
-    border: 1px solid var(--pink-mid);
+    border: 1px solid var(--beige-mid);
     display: flex;
     align-items: center;
     gap: 16px;
   }
 
-  .progress-label {
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--gray);
-    white-space: nowrap;
-  }
+  .progress-label { font-size: 13px; font-weight: 500; color: var(--gray); white-space: nowrap; }
 
   .progress-bar-outer {
     flex: 1;
     height: 8px;
-    background: var(--pink-mid);
+    background: var(--beige-mid);
     border-radius: 99px;
     overflow: hidden;
   }
 
   .progress-bar-inner {
     height: 100%;
-    background: linear-gradient(90deg, #E8A06A, #C4633A);
+    background: linear-gradient(90deg, var(--orange), var(--orange-deep));
     border-radius: 99px;
     transition: width 0.4s ease;
     width: 0%;
   }
 
-  .progress-count {
-    font-size: 13px;
-    font-weight: 600;
-    color: #C4633A;
-    white-space: nowrap;
-  }
+  .progress-count { font-size: 13px; font-weight: 600; color: var(--orange-deep); white-space: nowrap; }
 
-  /* Section */
   .section {
     background: var(--white);
     border-radius: 20px;
     padding: 32px;
     margin-bottom: 24px;
-    border: 1px solid var(--pink-mid);
+    border: 1px solid var(--beige-mid);
     display: none;
   }
 
@@ -161,7 +119,7 @@
     width: 44px;
     height: 44px;
     border-radius: 12px;
-    background: var(--pink-light);
+    background: #FDF0E8;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -169,91 +127,84 @@
     flex-shrink: 0;
   }
 
-  .section-meta h2 {
-    font-family: 'DM Serif Display', serif;
-    font-size: 22px;
-    color: var(--black);
-    margin-bottom: 4px;
+  .section-meta h2 { font-family: 'DM Serif Display', serif; font-size: 22px; color: var(--black); margin-bottom: 4px; }
+  .section-meta p { font-size: 14px; color: var(--gray); line-height: 1.5; }
+
+  .question { margin-bottom: 24px; }
+  .question-text { font-size: 15px; font-weight: 500; color: var(--black); margin-bottom: 8px; line-height: 1.5; }
+  .question-note { font-size: 13px; color: var(--gray); font-style: italic; margin-bottom: 10px; }
+
+  .info-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--orange-deep);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-left: 6px;
+    vertical-align: middle;
+    border: none;
+    font-family: 'DM Sans', sans-serif;
   }
 
-  .section-meta p {
-    font-size: 14px;
-    color: var(--gray);
-    line-height: 1.5;
-  }
-
-  /* Question */
-  .question {
-    margin-bottom: 24px;
-  }
-
-  .question-text {
-    font-size: 15px;
-    font-weight: 500;
-    color: var(--black);
-    margin-bottom: 12px;
-    line-height: 1.5;
-  }
-
-  .question-note {
+  .info-popup {
+    display: none;
+    background: var(--black);
+    color: white;
+    border-radius: 12px;
+    padding: 16px;
+    margin: 8px 0;
     font-size: 13px;
-    color: var(--gray);
-    font-style: italic;
-    margin-bottom: 10px;
+    line-height: 1.6;
   }
 
-  .options {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
+  .info-popup.visible { display: block; }
+
+  .options { display: flex; flex-direction: column; gap: 8px; }
 
   .option {
     display: flex;
     align-items: center;
     gap: 12px;
     padding: 12px 16px;
-    border: 1.5px solid var(--pink-mid);
+    border: 1.5px solid var(--beige-mid);
     border-radius: 12px;
     cursor: pointer;
     transition: all 0.2s;
     background: var(--white);
   }
 
-  .option:hover {
-    border-color: var(--pink);
-    background: var(--pink-light);
-  }
+  .option:hover { border-color: var(--orange); background: #FDF7F2; }
+  .option.selected { border-color: var(--orange-deep); background: #FDF7F2; }
 
-  .option.selected {
-    border-color: #C4633A;
-    background: var(--pink-light);
-  }
-
-  .option input[type="radio"] {
-    accent-color: #C4633A;
+  .option input[type="radio"],
+  .option input[type="checkbox"] {
+    accent-color: var(--orange-deep);
     width: 16px;
     height: 16px;
     flex-shrink: 0;
   }
 
-  .option-label {
-    font-size: 14px;
-    color: var(--black);
-    line-height: 1.4;
+  .option-label { font-size: 14px; color: var(--black); line-height: 1.4; }
+
+  .followup {
+    display: none;
+    margin-top: 16px;
+    padding: 16px;
+    background: var(--beige);
+    border-radius: 12px;
+    border: 1px solid var(--beige-mid);
   }
 
-  .option-score {
-    margin-left: auto;
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--gray);
-    background: var(--gray-light);
-    padding: 2px 8px;
-    border-radius: 99px;
-  }
+  .followup.visible { display: block; }
+  .followup .question { margin-bottom: 16px; }
+  .followup .question:last-child { margin-bottom: 0; }
 
-  /* Navigation buttons */
   .nav-buttons {
     display: flex;
     justify-content: space-between;
@@ -274,83 +225,43 @@
     transition: all 0.2s;
   }
 
-  .btn-primary {
-    background: #C4633A;
-    color: var(--white);
-  }
+  .btn-primary { background: var(--orange-deep); color: var(--white); }
+  .btn-primary:hover { background: #a84a28; }
+  .btn-secondary { background: transparent; color: var(--gray); border: 1.5px solid var(--beige-mid); }
+  .btn-secondary:hover { border-color: var(--orange); color: var(--black); }
 
-  .btn-primary:hover { background: #A84A28; }
-
-  .btn-secondary {
-    background: transparent;
-    color: var(--gray);
-    border: 1.5px solid var(--pink-mid);
-  }
-
-  .btn-secondary:hover {
-    border-color: var(--pink);
-    color: var(--black);
-  }
-
-  .btn:disabled {
-    opacity: 0.4;
-    cursor: not-allowed;
-  }
-
-  /* Email capture */
   .email-section {
     background: var(--white);
     border-radius: 20px;
     padding: 40px;
     margin-bottom: 24px;
-    border: 1px solid var(--pink-mid);
+    border: 1px solid var(--beige-mid);
     text-align: center;
     display: none;
   }
 
   .email-section.active { display: block; }
+  .email-section h2 { font-family: 'DM Serif Display', serif; font-size: 28px; margin-bottom: 12px; }
+  .email-section p { font-size: 16px; color: var(--gray); margin-bottom: 28px; line-height: 1.6; }
 
-  .email-section h2 {
-    font-family: 'DM Serif Display', serif;
-    font-size: 28px;
-    margin-bottom: 12px;
-  }
-
-  .email-section p {
-    font-size: 16px;
-    color: var(--gray);
-    margin-bottom: 28px;
-    line-height: 1.6;
-  }
-
-  .email-form {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    max-width: 400px;
-    margin: 0 auto;
-  }
+  .email-form { display: flex; flex-direction: column; gap: 12px; max-width: 400px; margin: 0 auto; }
 
   .email-form input {
     padding: 14px 18px;
-    border: 1.5px solid var(--pink-mid);
+    border: 1.5px solid var(--beige-mid);
     border-radius: 12px;
     font-family: 'DM Sans', sans-serif;
     font-size: 15px;
     color: var(--black);
     outline: none;
     transition: border-color 0.2s;
+    background: var(--white);
   }
 
-  .email-form input:focus { border-color: #C4633A; }
-
+  .email-form input:focus { border-color: var(--orange-deep); }
   .email-form input::placeholder { color: #bbb; }
 
-  /* Results */
-  .results-section {
-    display: none;
-  }
-
+  .results-section { display: none; }
   .results-section.active { display: block; }
 
   .score-card {
@@ -358,52 +269,22 @@
     border-radius: 20px;
     padding: 40px;
     margin-bottom: 24px;
-    border: 1px solid var(--pink-mid);
+    border: 1px solid var(--beige-mid);
     text-align: center;
   }
 
-  .score-number {
-    font-family: 'DM Serif Display', serif;
-    font-size: 80px;
-    line-height: 1;
-    margin-bottom: 8px;
-  }
+  .score-number { font-family: 'DM Serif Display', serif; font-size: 80px; line-height: 1; margin-bottom: 8px; }
+  .score-label { font-size: 13px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 24px; }
 
-  .score-label {
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    margin-bottom: 24px;
-  }
+  .score-bar-outer { max-width: 400px; margin: 0 auto 28px; height: 12px; background: var(--beige-mid); border-radius: 99px; overflow: hidden; }
+  .score-bar-inner { height: 100%; border-radius: 99px; transition: width 1s ease; }
 
-  .score-bar-outer {
-    max-width: 400px;
-    margin: 0 auto 28px;
-    height: 12px;
-    background: var(--pink-mid);
-    border-radius: 99px;
-    overflow: hidden;
-  }
-
-  .score-bar-inner {
-    height: 100%;
-    border-radius: 99px;
-    transition: width 1s ease;
-  }
-
-  .score-message {
-    font-size: 18px;
-    line-height: 1.6;
-    color: var(--black);
-    max-width: 520px;
-    margin: 0 auto 32px;
-  }
+  .score-message { font-size: 17px; line-height: 1.6; color: var(--black); max-width: 520px; margin: 0 auto 32px; }
 
   .cta-button {
     display: inline-block;
     padding: 18px 36px;
-    background: #C4633A;
+    background: var(--orange-deep);
     color: var(--white);
     border-radius: 14px;
     font-size: 16px;
@@ -415,71 +296,17 @@
     transition: background 0.2s;
   }
 
-  .cta-button:hover { background: #A84A28; }
-
-  .breakdown-card {
-    background: var(--white);
-    border-radius: 20px;
-    padding: 32px;
-    margin-bottom: 24px;
-    border: 1px solid var(--pink-mid);
-  }
-
-  .breakdown-card h3 {
-    font-family: 'DM Serif Display', serif;
-    font-size: 22px;
-    margin-bottom: 24px;
-  }
-
-  .breakdown-item {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 16px;
-  }
-
-  .breakdown-label {
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--black);
-    width: 160px;
-    flex-shrink: 0;
-  }
-
-  .breakdown-bar-outer {
-    flex: 1;
-    height: 8px;
-    background: var(--pink-mid);
-    border-radius: 99px;
-    overflow: hidden;
-  }
-
-  .breakdown-bar-inner {
-    height: 100%;
-    border-radius: 99px;
-    transition: width 1s ease;
-  }
-
-  .breakdown-score {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--gray);
-    width: 40px;
-    text-align: right;
-  }
+  .cta-button:hover { background: #a84a28; }
 
   .tier-excellent .score-number { color: var(--green); }
   .tier-excellent .score-label { color: var(--green); }
   .tier-excellent .score-bar-inner { background: var(--green); }
-
   .tier-good .score-number { color: var(--orange); }
   .tier-good .score-label { color: var(--orange); }
   .tier-good .score-bar-inner { background: var(--orange); }
-
   .tier-needs-work .score-number { color: var(--orange); }
   .tier-needs-work .score-label { color: var(--orange); }
   .tier-needs-work .score-bar-inner { background: var(--orange); }
-
   .tier-urgent .score-number { color: var(--red); }
   .tier-urgent .score-label { color: var(--red); }
   .tier-urgent .score-bar-inner { background: var(--red); }
@@ -488,21 +315,9 @@
     .container { padding: 24px 14px 60px; }
     .section { padding: 20px 16px; }
     .score-number { font-size: 56px; }
-    .breakdown-label { width: 100px; font-size: 12px; }
-    .breakdown-item { gap: 8px; }
-    .hero h1 { font-size: 28px; }
-    .hero p { font-size: 15px; }
-    .progress-wrap { flex-wrap: wrap; gap: 8px; padding: 14px 16px; }
-    .option { padding: 10px 12px; }
-    .option-label { font-size: 13px; }
+    .hero h1 { font-size: 26px; }
     .nav-buttons { flex-direction: column; gap: 10px; }
     .nav-buttons .btn { width: 100%; text-align: center; }
-    .email-form input { font-size: 16px; }
-    .score-card { padding: 28px 20px; }
-    .breakdown-card { padding: 24px 16px; }
-    .section-icon { width: 36px; height: 36px; font-size: 18px; }
-    .section-meta h2 { font-size: 18px; }
-    .question-text { font-size: 14px; }
   }
 </style>
 </head>
@@ -513,7 +328,7 @@
   <div class="hero">
     <div class="hero-eyebrow">Amazon Listing Audit</div>
     <h1>Is your Amazon listing<br><em>losing you sales?</em></h1>
-    <p>Answer 25 questions and get your listing score instantly. Find out exactly where you're leaving money on the table.</p>
+    <p>Answer the questions below and get your listing score instantly. Find out exactly where you're leaving money on the table.</p>
   </div>
 
   <div class="progress-wrap">
@@ -530,60 +345,104 @@
       <div class="section-icon">📸</div>
       <div class="section-meta">
         <h2>Images</h2>
-        <p>Images are the single biggest conversion driver on Amazon. Shoppers can't touch your product—your visuals are everything.</p>
+        <p>Images are the single biggest conversion driver on Amazon. Shoppers can't touch your product — your visuals are everything.</p>
       </div>
     </div>
 
-    <div class="question" id="q1">
+    <div class="question">
       <div class="question-text">How many images does your listing have?</div>
       <div class="options">
-        <label class="option"><input type="radio" name="q1" value="0"> <span class="option-label">Just 1 image</span></label>
+        <label class="option"><input type="radio" name="q1" value="0"> <span class="option-label">1 image</span></label>
         <label class="option"><input type="radio" name="q1" value="1"> <span class="option-label">2–3 images</span></label>
         <label class="option"><input type="radio" name="q1" value="2"> <span class="option-label">4–6 images</span></label>
         <label class="option"><input type="radio" name="q1" value="4"> <span class="option-label">7–9 images (all slots used)</span></label>
       </div>
     </div>
 
-    <div class="question" id="q2">
+    <div class="question">
       <div class="question-text">How is your main (hero) image?</div>
       <div class="question-note">The main image appears in search results and is your first impression.</div>
       <div class="options">
-        <label class="option"><input type="radio" name="q2" value="0"> <span class="option-label">Blurry or low resolution</span></label>
         <label class="option"><input type="radio" name="q2" value="1"> <span class="option-label">Colored or cluttered background (not white)</span></label>
         <label class="option"><input type="radio" name="q2" value="2"> <span class="option-label">White background but product is small or off-center</span></label>
         <label class="option"><input type="radio" name="q2" value="3"> <span class="option-label">White background, product is clear but could be sharper or more prominent</span></label>
         <label class="option"><input type="radio" name="q2" value="4"> <span class="option-label">Pure white background, product fills 85%+ of frame, high resolution</span></label>
+        <label class="option"><input type="radio" name="q2" value="1"> <span class="option-label">Other</span></label>
       </div>
     </div>
 
-    <div class="question" id="q3">
-      <div class="question-text">Do you have lifestyle images showing the product in use?</div>
+    <div class="question">
+      <div class="question-text">
+        Do you have lifestyle images showing the product in use?
+        <button class="info-btn" onclick="toggleInfo('lifestyle-info')">i</button>
+      </div>
+      <div class="info-popup" id="lifestyle-info">
+        <strong>What makes a great lifestyle image?</strong><br><br>
+        A lifestyle image shows your product being used naturally by a real person in a real setting. It should help the shopper picture themselves using it. Think: a skincare product being applied in a bright bathroom, a pet toy being played with by a happy dog, or a kitchen gadget in action on a clean countertop. It should feel authentic, aspirational, and relatable — not staged or obviously fake.
+      </div>
       <div class="options">
-        <label class="option"><input type="radio" name="q3" value="0"> <span class="option-label">No lifestyle images</span></label>
-        <label class="option"><input type="radio" name="q3" value="2"> <span class="option-label">Yes, but they look staged or low quality</span></label>
-        <label class="option"><input type="radio" name="q3" value="4"> <span class="option-label">Yes — professional, relatable, shows the product being used naturally</span></label>
+        <label class="option"><input type="radio" name="q3" value="0" onclick="hideFollowup('lifestyle-followup')"> <span class="option-label">We don't have lifestyle images</span></label>
+        <label class="option"><input type="radio" name="q3" value="2" onclick="showFollowup('lifestyle-followup')"> <span class="option-label">Yes, we have lifestyle images</span></label>
+      </div>
+      <div class="followup" id="lifestyle-followup">
+        <div class="question">
+          <div class="question-text">What type of lifestyle images do you have? (Select all that apply)</div>
+          <div class="options">
+            <label class="option"><input type="checkbox" name="q3_type" value="ai"> <span class="option-label">AI or Canva generated</span></label>
+            <label class="option"><input type="checkbox" name="q3_type" value="pro_single"> <span class="option-label">Professional photography — single setup</span></label>
+            <label class="option"><input type="checkbox" name="q3_type" value="pro_multi"> <span class="option-label">Professional photography — multiple setups</span></label>
+            <label class="option"><input type="checkbox" name="q3_type" value="ugc"> <span class="option-label">UGC (user-generated content)</span></label>
+            <label class="option"><input type="checkbox" name="q3_type" value="other"> <span class="option-label">Other</span></label>
+          </div>
+        </div>
+        <div class="question">
+          <div class="question-text">How many lifestyle images do you have?</div>
+          <div class="options">
+            <label class="option"><input type="radio" name="q3_count" value="1"> <span class="option-label">1 image</span></label>
+            <label class="option"><input type="radio" name="q3_count" value="2"> <span class="option-label">2–3 images</span></label>
+            <label class="option"><input type="radio" name="q3_count" value="3"> <span class="option-label">4+ images</span></label>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="question" id="q4">
-      <div class="question-text">Do you have infographic images with benefit callouts?</div>
-      <div class="question-note">Infographics should clearly explain features not overwhelm with scientific jargon.</div>
+    <div class="question">
+      <div class="question-text">Do you have infographic images on your listing?</div>
       <div class="options">
-        <label class="option"><input type="radio" name="q4" value="0"> <span class="option-label">No infographics at all</span></label>
-        <label class="option"><input type="radio" name="q4" value="1"> <span class="option-label">Yes, but they're cluttered and hard to read</span></label>
-        <label class="option"><input type="radio" name="q4" value="2"> <span class="option-label">Yes, but filled with scientific jargon most shoppers won't understand</span></label>
-        <label class="option"><input type="radio" name="q4" value="3"> <span class="option-label">Yes — decent but could be cleaner or more benefit-focused</span></label>
-        <label class="option"><input type="radio" name="q4" value="4"> <span class="option-label">Yes — clean, easy to read, clearly communicates benefits in plain language</span></label>
+        <label class="option"><input type="radio" name="q4" value="0" onclick="hideFollowup('infographic-followup')"> <span class="option-label">We don't have any infographics</span></label>
+        <label class="option"><input type="radio" name="q4" value="2" onclick="showFollowup('infographic-followup')"> <span class="option-label">Yes, we have infographics</span></label>
+      </div>
+      <div class="followup" id="infographic-followup">
+        <div class="question">
+          <div class="question-text">What types of infographics do you have? (Select all that apply)</div>
+          <div class="options">
+            <label class="option"><input type="checkbox" name="q4_type" value="benefits"> <span class="option-label">Benefits infographic</span></label>
+            <label class="option"><input type="checkbox" name="q4_type" value="ingredients"> <span class="option-label">Ingredients or formula infographic</span></label>
+            <label class="option"><input type="checkbox" name="q4_type" value="science"> <span class="option-label">Science-based or clinical infographic</span></label>
+            <label class="option"><input type="checkbox" name="q4_type" value="comparison"> <span class="option-label">Comparison image (our product vs competitors)</span></label>
+            <label class="option"><input type="checkbox" name="q4_type" value="size"> <span class="option-label">Size chart or dimensions infographic</span></label>
+            <label class="option"><input type="checkbox" name="q4_type" value="howto"> <span class="option-label">How to use infographic</span></label>
+            <label class="option"><input type="checkbox" name="q4_type" value="other"> <span class="option-label">Other type of infographic</span></label>
+          </div>
+        </div>
+        <div class="question">
+          <div class="question-text">How many infographic images do you have?</div>
+          <div class="options">
+            <label class="option"><input type="radio" name="q4_count" value="1"> <span class="option-label">1 infographic</span></label>
+            <label class="option"><input type="radio" name="q4_count" value="2"> <span class="option-label">2–3 infographics</span></label>
+            <label class="option"><input type="radio" name="q4_count" value="3"> <span class="option-label">4+ infographics</span></label>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="question" id="q5">
+    <div class="question">
       <div class="question-text">Do your images look good on mobile?</div>
       <div class="question-note">Most Amazon shoppers are on their phones. Small or cluttered images lose clicks.</div>
       <div class="options">
-        <label class="option"><input type="radio" name="q5" value="0"> <span class="option-label">I've never checked on mobile</span></label>
+        <label class="option"><input type="radio" name="q5" value="0"> <span class="option-label">We have never checked on mobile</span></label>
         <label class="option"><input type="radio" name="q5" value="2"> <span class="option-label">They're okay but text overlays are hard to read on small screens</span></label>
-        <label class="option"><input type="radio" name="q5" value="4"> <span class="option-label">Yes product is clear, text is readable, strong first impression on mobile</span></label>
+        <label class="option"><input type="radio" name="q5" value="4"> <span class="option-label">Yes — product is clear, text is readable, strong first impression on mobile</span></label>
       </div>
     </div>
 
@@ -599,55 +458,59 @@
       <div class="section-icon">✍️</div>
       <div class="section-meta">
         <h2>Title & Copy</h2>
-        <p>Your title and bullet points determine whether Amazon shows your product and whether shoppers click.</p>
+        <p>Your title and bullet points determine whether Amazon shows your product — and whether shoppers click.</p>
       </div>
     </div>
 
-    <div class="question" id="q6">
-      <div class="question-text">How is your product title structured?</div>
+    <div class="question">
+      <div class="question-text">How was your product title structured?</div>
       <div class="options">
-        <label class="option"><input type="radio" name="q6" value="0"> <span class="option-label">Vague, missing key details, or just the product name</span></label>
-        <label class="option"><input type="radio" name="q6" value="2"> <span class="option-label">Includes some keywords but feels stuffed or hard to read</span></label>
-        <label class="option"><input type="radio" name="q6" value="4"> <span class="option-label">Brand + primary keyword + key features, readable and within 200 characters</span></label>
+        <label class="option"><input type="radio" name="q6" value="1"> <span class="option-label">We used the product name and basic info</span></label>
+        <label class="option"><input type="radio" name="q6" value="2"> <span class="option-label">We put in the most common keywords we knew</span></label>
+        <label class="option"><input type="radio" name="q6" value="3"> <span class="option-label">We did manual research and used the best option we found</span></label>
+        <label class="option"><input type="radio" name="q6" value="3"> <span class="option-label">We optimized it at the start with Helium 10 / Jungle Scout / AI</span></label>
+        <label class="option"><input type="radio" name="q6" value="4"> <span class="option-label">We optimize it regularly with Helium 10 / Jungle Scout / AI</span></label>
       </div>
     </div>
 
-    <div class="question" id="q7">
-      <div class="question-text">What do your bullet points focus on?</div>
+    <div class="question">
+      <div class="question-text">What do your bullet points focus on? (Select all that apply)</div>
       <div class="options">
-        <label class="option"><input type="radio" name="q7" value="0"> <span class="option-label">Mostly specs and technical details — no clear benefit language</span></label>
-        <label class="option"><input type="radio" name="q7" value="1"> <span class="option-label">Features only (material, dimensions, what it is)</span></label>
-        <label class="option"><input type="radio" name="q7" value="2"> <span class="option-label">Mix of features and some benefits</span></label>
-        <label class="option"><input type="radio" name="q7" value="3"> <span class="option-label">Mostly benefits but a few bullet points are still feature-heavy</span></label>
-        <label class="option"><input type="radio" name="q7" value="4"> <span class="option-label">Primarily benefits — what the shopper gains, feels, or solves</span></label>
+        <label class="option"><input type="checkbox" name="q7" value="features"> <span class="option-label">Features — what the product is made of, specs, dimensions</span></label>
+        <label class="option"><input type="checkbox" name="q7" value="benefits"> <span class="option-label">Benefits — what the shopper gains, feels, or solves</span></label>
+        <label class="option"><input type="checkbox" name="q7" value="objections"> <span class="option-label">Objection handling — addressing common concerns buyers have</span></label>
+        <label class="option"><input type="checkbox" name="q7" value="keywords"> <span class="option-label">Keyword-focused — written primarily to rank rather than to persuade</span></label>
+        <label class="option"><input type="checkbox" name="q7" value="mixed"> <span class="option-label">A mix of the above</span></label>
       </div>
     </div>
 
-    <div class="question" id="q8">
-      <div class="question-text">Have you done keyword research for your listing?</div>
+    <div class="question">
+      <div class="question-text">How did you approach keyword research for your listing?</div>
       <div class="options">
-        <label class="option"><input type="radio" name="q8" value="0"> <span class="option-label">No I wrote the listing based on what I thought made sense</span></label>
-        <label class="option"><input type="radio" name="q8" value="2"> <span class="option-label">Some research but not thorough</span></label>
-        <label class="option"><input type="radio" name="q8" value="4"> <span class="option-label">Yes — used Helium 10, Jungle Scout, or similar tools</span></label>
+        <label class="option"><input type="radio" name="q8" value="1"> <span class="option-label">We didn't do much — we went with what felt right</span></label>
+        <label class="option"><input type="radio" name="q8" value="2"> <span class="option-label">We researched manually and used the best options we found</span></label>
+        <label class="option"><input type="radio" name="q8" value="3"> <span class="option-label">We used the most common keywords we knew in our niche</span></label>
+        <label class="option"><input type="radio" name="q8" value="3"> <span class="option-label">We optimized at the start with Helium 10 / Jungle Scout / AI</span></label>
+        <label class="option"><input type="radio" name="q8" value="4"> <span class="option-label">We optimize regularly with Helium 10 / Jungle Scout / AI</span></label>
       </div>
     </div>
 
-    <div class="question" id="q9">
+    <div class="question">
       <div class="question-text">Do your backend search terms use your full character allowance?</div>
       <div class="options">
-        <label class="option"><input type="radio" name="q9" value="0"> <span class="option-label">I haven't filled in backend keywords</span></label>
-        <label class="option"><input type="radio" name="q9" value="2"> <span class="option-label">Partially filled but not optimized</span></label>
+        <label class="option"><input type="radio" name="q9" value="0"> <span class="option-label">We haven't filled in backend keywords</span></label>
+        <label class="option"><input type="radio" name="q9" value="2"> <span class="option-label">Partially filled but not fully optimized</span></label>
         <label class="option"><input type="radio" name="q9" value="4"> <span class="option-label">Yes — fully utilized with relevant synonyms, misspellings, and long-tail terms</span></label>
       </div>
     </div>
 
-    <div class="question" id="q10">
+    <div class="question">
       <div class="question-text">Is your listing optimized for Amazon's AI assistant (Rufus)?</div>
-      <div class="question-note">In 2026, Rufus recommends products in conversational searches. Your copy needs — answer natural questions, not just target keywords.</div>
+      <div class="question-note">In 2026, Rufus recommends products in conversational searches. Your copy needs to answer natural questions, not just target keywords.</div>
       <div class="options">
-        <label class="option"><input type="radio" name="q10" value="0"> <span class="option-label">Never heard of Rufus or haven't considered it</span></label>
-        <label class="option"><input type="radio" name="q10" value="2"> <span class="option-label">Aware of it but haven't specifically optimized for it</span></label>
-        <label class="option"><input type="radio" name="q10" value="4"> <span class="option-label">Yes — copy answers natural shopper questions clearly</span></label>
+        <label class="option"><input type="radio" name="q10" value="0"> <span class="option-label">We haven't considered this</span></label>
+        <label class="option"><input type="radio" name="q10" value="2"> <span class="option-label">We're aware of it but haven't specifically optimized for it</span></label>
+        <label class="option"><input type="radio" name="q10" value="4"> <span class="option-label">Yes — our copy answers natural shopper questions clearly</span></label>
       </div>
     </div>
 
@@ -663,55 +526,44 @@
       <div class="section-icon">⭐</div>
       <div class="section-meta">
         <h2>A+ Content & Brand Store</h2>
-        <p>A+ Content acts like a landing page inside Amazon. Most sellers skip it—it's one of the highest-impact improvements you can make.</p>
+        <p>A+ Content acts like a landing page inside Amazon. Most sellers skip it — it's one of the highest-impact improvements you can make.</p>
       </div>
     </div>
 
-    <div class="question" id="q11">
+    <div class="question">
       <div class="question-text">Do you have A+ Content set up on your listing?</div>
       <div class="options">
-        <label class="option"><input type="radio" name="q11" value="0"> <span class="option-label">No A+ Content just the standard product description text</span></label>
-        <label class="option"><input type="radio" name="q11" value="1"> <span class="option-label">Set up but very basic — just a couple of images, no real storytelling</span></label>
-        <label class="option"><input type="radio" name="q11" value="2"> <span class="option-label">Yes, but mostly text — not using the visual modules effectively</span></label>
-        <label class="option"><input type="radio" name="q11" value="3"> <span class="option-label">Good visuals but missing comparison charts or objection handling</span></label>
-        <label class="option"><input type="radio" name="q11" value="4"> <span class="option-label">Rich visuals, comparison charts, brand story, objection handling — fully built out</span></label>
+        <label class="option"><input type="radio" name="q11" value="0" onclick="hideFollowup('aplus-followup')"> <span class="option-label">No — we just have the standard product description</span></label>
+        <label class="option"><input type="radio" name="q11" value="3" onclick="showFollowup('aplus-followup')"> <span class="option-label">Yes — we have A+ Content</span></label>
+      </div>
+      <div class="followup" id="aplus-followup">
+        <div class="question">
+          <div class="question-text">What does your A+ Content include? (Select all that apply)</div>
+          <div class="options">
+            <label class="option"><input type="checkbox" name="q11_type" value="lifestyle"> <span class="option-label">Lifestyle visuals and brand story</span></label>
+            <label class="option"><input type="checkbox" name="q11_type" value="comparison"> <span class="option-label">Comparison chart differentiating from competitors</span></label>
+            <label class="option"><input type="checkbox" name="q11_type" value="objections"> <span class="option-label">Visual objection handling</span></label>
+            <label class="option"><input type="checkbox" name="q11_type" value="basic"> <span class="option-label">Mostly text — no strong visuals</span></label>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="question" id="q12">
+    <div class="question">
       <div class="question-text">Do you have an Amazon Brand Storefront?</div>
       <div class="options">
-        <label class="option"><input type="radio" name="q12" value="0"> <span class="option-label">No storefront</span></label>
-        <label class="option"><input type="radio" name="q12" value="2"> <span class="option-label">Yes, but it's minimal or hasn't been updated in a while</span></label>
+        <label class="option"><input type="radio" name="q12" value="0"> <span class="option-label">We don't have a storefront</span></label>
+        <label class="option"><input type="radio" name="q12" value="2"> <span class="option-label">Yes, but it's minimal or hasn't been updated recently</span></label>
         <label class="option"><input type="radio" name="q12" value="4"> <span class="option-label">Yes — fully branded, well organized, tells a compelling brand story</span></label>
       </div>
     </div>
 
-    <div class="question" id="q13">
-      <div class="question-text">Does your A+ Content include a comparison chart showing your product vs. alternatives?</div>
-      <div class="options">
-        <label class="option"><input type="radio" name="q13" value="0"> <span class="option-label">No</span></label>
-        <label class="option"><input type="radio" name="q13" value="2"> <span class="option-label">Yes, but it only compares my own product variants</span></label>
-        <label class="option"><input type="radio" name="q13" value="4"> <span class="option-label">Yes — clear comparison that highlights my product's advantages</span></label>
-      </div>
-    </div>
-
-    <div class="question" id="q14">
-      <div class="question-text">Does your A+ Content handle common buyer objections visually?</div>
-      <div class="question-note">Examples: size concerns, compatibility, material quality, results timeline.</div>
-      <div class="options">
-        <label class="option"><input type="radio" name="q14" value="0"> <span class="option-label">No it mostly just restates product features</span></label>
-        <label class="option"><input type="radio" name="q14" value="2"> <span class="option-label">Partially addresses some concerns but not systematically</span></label>
-        <label class="option"><input type="radio" name="q14" value="4"> <span class="option-label">Yes directly answers the top reasons shoppers hesitate — buy</span></label>
-      </div>
-    </div>
-
-    <div class="question" id="q15">
+    <div class="question">
       <div class="question-text">Is your branding consistent across all images, A+ Content, and storefront?</div>
       <div class="options">
-        <label class="option"><input type="radio" name="q15" value="0"> <span class="option-label">No fonts, colors, and style vary across the listing</span></label>
-        <label class="option"><input type="radio" name="q15" value="2"> <span class="option-label">Mostly consistent but some elements feel off-brand</span></label>
-        <label class="option"><input type="radio" name="q15" value="4"> <span class="option-label">Yes cohesive visual identity throughout the full listing experience</span></label>
+        <label class="option"><input type="radio" name="q13" value="0"> <span class="option-label">Not really — fonts, colors, and style vary</span></label>
+        <label class="option"><input type="radio" name="q13" value="2"> <span class="option-label">Mostly consistent but some elements feel off-brand</span></label>
+        <label class="option"><input type="radio" name="q13" value="4"> <span class="option-label">Yes — cohesive visual identity throughout the full listing</span></label>
       </div>
     </div>
 
@@ -721,60 +573,70 @@
     </div>
   </div>
 
-  <!-- SECTION 4: Reviews & Conversion -->
+  <!-- SECTION 4: Reviews -->
   <div class="section" id="section-3">
     <div class="section-header">
-      <div class="section-icon">⭐</div>
+      <div class="section-icon">💬</div>
       <div class="section-meta">
-        <h2>Reviews & Conversion Signals</h2>
+        <h2>Reviews & Trust Signals</h2>
         <p>Reviews are trust. Without them, even perfect visuals and copy won't convert.</p>
       </div>
     </div>
 
-    <div class="question" id="q16">
+    <div class="question">
       <div class="question-text">How many reviews does your listing have?</div>
       <div class="options">
-        <label class="option"><input type="radio" name="q16" value="0"> <span class="option-label">Fewer than 10 reviews</span></label>
-        <label class="option"><input type="radio" name="q16" value="2"> <span class="option-label">10–50 reviews</span></label>
-        <label class="option"><input type="radio" name="q16" value="3"> <span class="option-label">51–200 reviews</span></label>
-        <label class="option"><input type="radio" name="q16" value="4"> <span class="option-label">200+ reviews</span></label>
+        <label class="option"><input type="radio" name="q14" value="0"> <span class="option-label">Fewer than 10 reviews</span></label>
+        <label class="option"><input type="radio" name="q14" value="2"> <span class="option-label">10–50 reviews</span></label>
+        <label class="option"><input type="radio" name="q14" value="3"> <span class="option-label">51–200 reviews</span></label>
+        <label class="option"><input type="radio" name="q14" value="4"> <span class="option-label">200+ reviews</span></label>
       </div>
     </div>
 
-    <div class="question" id="q17">
+    <div class="question">
       <div class="question-text">What is your average star rating?</div>
       <div class="options">
-        <label class="option"><input type="radio" name="q17" value="0"> <span class="option-label">Below 3.5 stars</span></label>
-        <label class="option"><input type="radio" name="q17" value="2"> <span class="option-label">3.5–4.0 stars</span></label>
-        <label class="option"><input type="radio" name="q17" value="3"> <span class="option-label">4.0–4.5 stars</span></label>
-        <label class="option"><input type="radio" name="q17" value="4"> <span class="option-label">4.5+ stars</span></label>
+        <label class="option"><input type="radio" name="q15" value="0"> <span class="option-label">Below 3.5 stars</span></label>
+        <label class="option"><input type="radio" name="q15" value="2"> <span class="option-label">3.5–4.0 stars</span></label>
+        <label class="option"><input type="radio" name="q15" value="3"> <span class="option-label">4.0–4.5 stars</span></label>
+        <label class="option"><input type="radio" name="q15" value="4"> <span class="option-label">4.5+ stars</span></label>
       </div>
     </div>
 
-    <div class="question" id="q18">
+    <div class="question">
       <div class="question-text">Do you actively request reviews after purchase?</div>
       <div class="options">
-        <label class="option"><input type="radio" name="q18" value="0"> <span class="option-label">No — I let reviews happen organically</span></label>
-        <label class="option"><input type="radio" name="q18" value="2"> <span class="option-label">Occasionally</span></label>
-        <label class="option"><input type="radio" name="q18" value="4"> <span class="option-label">Yes I use Amazon's "Request a Review" feature consistently</span></label>
+        <label class="option"><input type="radio" name="q16" value="0"> <span class="option-label">No — we let reviews happen organically</span></label>
+        <label class="option"><input type="radio" name="q16" value="2"> <span class="option-label">Occasionally</span></label>
+        <label class="option"><input type="radio" name="q16" value="4"> <span class="option-label">Yes — we use Amazon's "Request a Review" feature consistently</span></label>
       </div>
     </div>
 
-    <div class="question" id="q19">
+    <div class="question">
       <div class="question-text">How is your pricing positioned versus competitors?</div>
       <div class="options">
-        <label class="option"><input type="radio" name="q19" value="0"> <span class="option-label">I'm not sure how I compare — competitors</span></label>
-        <label class="option"><input type="radio" name="q19" value="2"> <span class="option-label">I'm aware but haven't actively optimized pricing</span></label>
-        <label class="option"><input type="radio" name="q19" value="4"> <span class="option-label">Strategically priced competitive with strong perceived value</span></label>
+        <label class="option"><input type="radio" name="q17" value="0"> <span class="option-label">We're not sure how we compare</span></label>
+        <label class="option"><input type="radio" name="q17" value="2"> <span class="option-label">We're aware but haven't actively optimized pricing</span></label>
+        <label class="option"><input type="radio" name="q17" value="4"> <span class="option-label">Strategically priced — competitive with strong perceived value</span></label>
       </div>
     </div>
 
-    <div class="question" id="q20">
+    <div class="question">
       <div class="question-text">Do you have a product video on your listing?</div>
       <div class="options">
-        <label class="option"><input type="radio" name="q20" value="0"> <span class="option-label">No video</span></label>
-        <label class="option"><input type="radio" name="q20" value="2"> <span class="option-label">Yes, but it's basic or low production quality</span></label>
-        <label class="option"><input type="radio" name="q20" value="4"> <span class="option-label">Yes professional, benefit-focused, 30–60 seconds</span></label>
+        <label class="option"><input type="radio" name="q18" value="0" onclick="hideFollowup('video-followup')"> <span class="option-label">No — we don't have a product video</span></label>
+        <label class="option"><input type="radio" name="q18" value="2" onclick="showFollowup('video-followup')"> <span class="option-label">Yes — we have a product video</span></label>
+      </div>
+      <div class="followup" id="video-followup">
+        <div class="question">
+          <div class="question-text">What type of video do you have? (Select all that apply)</div>
+          <div class="options">
+            <label class="option"><input type="checkbox" name="q18_type" value="basic"> <span class="option-label">Basic or low production quality video</span></label>
+            <label class="option"><input type="checkbox" name="q18_type" value="professional"> <span class="option-label">Professional, benefit-focused video (30–60 seconds)</span></label>
+            <label class="option"><input type="checkbox" name="q18_type" value="ugc"> <span class="option-label">UGC — user-generated content video</span></label>
+            <label class="option"><input type="checkbox" name="q18_type" value="brand"> <span class="option-label">Brand story or lifestyle video</span></label>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -790,53 +652,71 @@
       <div class="section-icon">📊</div>
       <div class="section-meta">
         <h2>Performance & Growth</h2>
-        <p>How your listing is actually performing and whether you're tracking the right signals.</p>
+        <p>How your listing is actually performing — and whether you're tracking the right signals.</p>
       </div>
     </div>
 
-    <div class="question" id="q21">
+    <div class="question">
       <div class="question-text">Do you track your listing's conversion rate?</div>
       <div class="options">
-        <label class="option"><input type="radio" name="q21" value="0"> <span class="option-label">No I mostly just check overall sales</span></label>
-        <label class="option"><input type="radio" name="q21" value="2"> <span class="option-label">Occasionally, but not consistently</span></label>
-        <label class="option"><input type="radio" name="q21" value="4"> <span class="option-label">Yes I monitor click-through rate and conversion rate regularly</span></label>
+        <label class="option"><input type="radio" name="q19" value="0"> <span class="option-label">No — we mostly just check overall sales</span></label>
+        <label class="option"><input type="radio" name="q19" value="2"> <span class="option-label">Occasionally, but not consistently</span></label>
+        <label class="option"><input type="radio" name="q19" value="4"> <span class="option-label">Yes — we monitor click-through rate and conversion rate regularly</span></label>
       </div>
     </div>
 
-    <div class="question" id="q22">
+    <div class="question">
       <div class="question-text">Are you running Amazon PPC (sponsored ads)?</div>
       <div class="options">
-        <label class="option"><input type="radio" name="q22" value="0"> <span class="option-label">No PPC at all</span></label>
-        <label class="option"><input type="radio" name="q22" value="2"> <span class="option-label">Yes, but I'm not sure if it's profitable</span></label>
-        <label class="option"><input type="radio" name="q22" value="4"> <span class="option-label">Yes structured campaigns with tracked ACoS and regular optimization</span></label>
+        <label class="option"><input type="radio" name="q20" value="0"> <span class="option-label">No PPC at all</span></label>
+        <label class="option"><input type="radio" name="q20" value="2"> <span class="option-label">Yes — manual campaigns only</span></label>
+        <label class="option"><input type="radio" name="q20" value="2"> <span class="option-label">Yes — automatic campaigns only</span></label>
+        <label class="option"><input type="radio" name="q20" value="4"> <span class="option-label">Yes — both manual and automatic campaigns, actively optimized</span></label>
       </div>
     </div>
 
-    <div class="question" id="q23">
-      <div class="question-text">How does your listing rank for your main keyword?</div>
+    <div class="question">
+      <div class="question-text">How does your listing rank for your main keywords?</div>
       <div class="options">
-        <label class="option"><input type="radio" name="q23" value="0"> <span class="option-label">I don't know where I rank</span></label>
-        <label class="option"><input type="radio" name="q23" value="1"> <span class="option-label">Page 4 or beyond</span></label>
-        <label class="option"><input type="radio" name="q23" value="2"> <span class="option-label">Page 3</span></label>
-        <label class="option"><input type="radio" name="q23" value="3"> <span class="option-label">Page 2</span></label>
-        <label class="option"><input type="radio" name="q23" value="4"> <span class="option-label">Page 1</span></label>
+        <label class="option"><input type="radio" name="q21" value="0"> <span class="option-label">We don't know where we rank</span></label>
+        <label class="option"><input type="radio" name="q21" value="1"> <span class="option-label">Not ranking well — rarely showing up in search</span></label>
+        <label class="option"><input type="radio" name="q21" value="3"> <span class="option-label">Ranking in search but not near the top</span></label>
+        <label class="option"><input type="radio" name="q21" value="4"> <span class="option-label">Top of search for our main keywords</span></label>
       </div>
     </div>
 
-    <div class="question" id="q24">
+    <div class="question">
+      <div class="question-text">Are you using a keyword tracking tool for your listing?</div>
+      <div class="options">
+        <label class="option"><input type="radio" name="q22" value="0"> <span class="option-label">No — we don't use any tracking tools</span></label>
+        <label class="option"><input type="radio" name="q22" value="2"> <span class="option-label">We used one at the start but don't monitor regularly</span></label>
+        <label class="option"><input type="radio" name="q22" value="4"> <span class="option-label">Yes — we use Helium 10, Jungle Scout, or similar tools regularly</span></label>
+      </div>
+    </div>
+
+    <div class="question">
       <div class="question-text">Have you done a competitor visual analysis recently?</div>
-      <div class="question-note">Knowing how your images compare — top competitors in search results is critical.</div>
       <div class="options">
-        <label class="option"><input type="radio" name="q24" value="0"> <span class="option-label">No I haven't looked at competitors' listings closely</span></label>
-        <label class="option"><input type="radio" name="q24" value="2"> <span class="option-label">I've looked but haven't made changes based on it</span></label>
-        <label class="option"><input type="radio" name="q24" value="4"> <span class="option-label">Yes I regularly review competitor visuals and positioning</span></label>
+        <label class="option"><input type="radio" name="q23" value="0"> <span class="option-label">No — we haven't looked at competitors' listings closely</span></label>
+        <label class="option"><input type="radio" name="q23" value="2"> <span class="option-label">We've looked but haven't made changes based on it</span></label>
+        <label class="option"><input type="radio" name="q23" value="4"> <span class="option-label">Yes — we regularly review competitor visuals and positioning</span></label>
       </div>
     </div>
 
-    <div class="question" id="q25">
+    <div class="question">
+      <div class="question-text">Do all your product variants have a complete and consistent image set?</div>
+      <div class="question-note">Parent listings often look polished while child variants sit with one blurry image.</div>
+      <div class="options">
+        <label class="option"><input type="radio" name="q24" value="0"> <span class="option-label">We only have one main listing with no variants</span></label>
+        <label class="option"><input type="radio" name="q24" value="1"> <span class="option-label">We have variants but some have missing or inconsistent images</span></label>
+        <label class="option"><input type="radio" name="q24" value="4"> <span class="option-label">Yes — all variants have a full, consistent image set</span></label>
+      </div>
+    </div>
+
+    <div class="question">
       <div class="question-text">When did you last update your listing images or copy?</div>
       <div class="options">
-        <label class="option"><input type="radio" name="q25" value="0"> <span class="option-label">Over a year ago or never updated since launch</span></label>
+        <label class="option"><input type="radio" name="q25" value="0"> <span class="option-label">Over a year ago — or never updated since launch</span></label>
         <label class="option"><input type="radio" name="q25" value="2"> <span class="option-label">6–12 months ago</span></label>
         <label class="option"><input type="radio" name="q25" value="4"> <span class="option-label">Within the last 3 months</span></label>
       </div>
@@ -852,7 +732,7 @@
   <div class="email-section" id="emailCapture">
     <div style="font-size: 40px; margin-bottom: 16px;">📬</div>
     <h2>Your results are ready</h2>
-    <p>Enter your email — see your score and get a free PDF checklist with exactly what — fix sent straight — your inbox.</p>
+    <p>Enter your details to see your score and get a free PDF checklist sent straight to your inbox.</p>
     <div class="email-form">
       <input type="text" id="firstName" placeholder="First name" />
       <input type="email" id="emailInput" placeholder="Your email address" />
@@ -874,28 +754,27 @@
       <button class="cta-button" onclick="window.open('https://tidycal.com/1wego4j/amazon-listing-audit', '_blank')">Book a Customized Audit With Us →</button>
       <p style="font-size: 13px; color: var(--gray); margin-top: 16px;">📬 Check your inbox — we just sent you your free checklist and a surprise coupon.</p>
     </div>
-
   </div>
 
 </div>
 
 <script>
   let currentSection = 0;
-  const totalSections = 5;
-  const totalQuestions = 25;
+  const radioQuestions = ['q1','q2','q3','q5','q6','q8','q9','q10','q11','q12','q13','q14','q15','q16','q17','q18','q19','q20','q21','q22','q23','q24','q25'];
+  const totalTracked = radioQuestions.length;
   const answers = {};
 
-  // Questions per section
-  const sectionQuestions = [
-    ['q1','q2','q3','q4','q5'],
-    ['q6','q7','q8','q9','q10'],
-    ['q11','q12','q13','q14','q15'],
-    ['q16','q17','q18','q19','q20'],
-    ['q21','q22','q23','q24','q25']
-  ];
+  function toggleInfo(id) {
+    document.getElementById(id).classList.toggle('visible');
+  }
 
-  const sectionNames = ['images','copy','aplus','reviews','perf'];
-  const sectionMax = [20, 20, 20, 20, 20];
+  function showFollowup(id) {
+    document.getElementById(id).classList.add('visible');
+  }
+
+  function hideFollowup(id) {
+    document.getElementById(id).classList.remove('visible');
+  }
 
   document.addEventListener('change', function(e) {
     if (e.target.type === 'radio') {
@@ -907,13 +786,16 @@
       e.target.closest('.option').classList.add('selected');
       updateProgress();
     }
+    if (e.target.type === 'checkbox') {
+      e.target.closest('.option').classList.toggle('selected', e.target.checked);
+    }
   });
 
   function updateProgress() {
-    const answered = Object.keys(answers).length;
-    const pct = (answered / totalQuestions) * 100;
+    const answered = Object.keys(answers).filter(k => radioQuestions.includes(k)).length;
+    const pct = (answered / totalTracked) * 100;
     document.getElementById('progressBar').style.width = pct + '%';
-    document.getElementById('progressCount').textContent = answered + ' / ' + totalQuestions;
+    document.getElementById('progressCount').textContent = answered + ' / ' + totalTracked;
   }
 
   function nextSection(idx) {
@@ -937,24 +819,18 @@
   }
 
   function showResults() {
-    document.getElementById('emailCapture').classList.remove('active');
-    document.getElementById('resultsSection').classList.add('active');
-
-    // Get email and name
     const firstName = document.getElementById('firstName').value;
     const email = document.getElementById('emailInput').value;
 
-    // Calculate scores
-    const sectionScores = sectionQuestions.map((qs, i) => {
-      return qs.reduce((sum, q) => sum + (answers[q] || 0), 0);
-    });
+    document.getElementById('emailCapture').classList.remove('active');
+    document.getElementById('resultsSection').classList.add('active');
 
-    const totalScore = sectionScores.reduce((a, b) => a + b, 0);
-    const maxScore = 100;
+    const scoreKeys = ['q1','q2','q3','q5','q6','q8','q9','q10','q11','q12','q13','q14','q15','q16','q17','q18','q19','q20','q21','q22','q23','q24','q25'];
+    const totalScore = scoreKeys.reduce((sum, k) => sum + (answers[k] || 0), 0);
+    const maxScore = scoreKeys.length * 4;
     const rawPct = Math.round((totalScore / maxScore) * 100);
     const pct = Math.min(rawPct, 89);
 
-    // Animate score
     const scoreEl = document.getElementById('scoreNumber');
     let current = 0;
     const interval = setInterval(() => {
@@ -963,28 +839,22 @@
       if (current >= pct) clearInterval(interval);
     }, 20);
 
-    // Score bar
     document.getElementById('scoreBarFill').style.width = pct + '%';
 
-    // Tier
-    let tier, tierLabel, message, tierClass;
+    let tierLabel, message, tierClass;
     if (pct >= 85) {
-      tier = 'excellent';
       tierLabel = 'Strong Listing';
       tierClass = 'tier-excellent';
-      message = "Your listing is performing well but even the strongest listings have untapped growth. Brands at this level typically see 15–30% revenue lifts after a professional audit. Let's find those gaps together.";
+      message = "Your listing is performing well — but even the strongest listings have untapped growth. Brands at this level typically see 15–30% revenue lifts after a professional audit. Let's find those gaps together.";
     } else if (pct >= 65) {
-      tier = 'good';
       tierLabel = 'Room to Grow';
       tierClass = 'tier-good';
       message = "You're doing some things right, but you're leaving real money on the table. Most sellers in this range see 30–50% conversion improvements after we audit and optimize their listing.";
     } else if (pct >= 45) {
-      tier = 'needs-work';
       tierLabel = 'Needs Attention';
       tierClass = 'tier-needs-work';
-      message = "Your listing has critical gaps that are actively hurting your conversion rate. The good news? These are fixable. We can typically identify and address the key issues in 1–2 weeks.";
+      message = "Your listing has critical gaps that are actively hurting your conversion rate. The good news? These are fixable — and we can typically identify and address the key issues quickly.";
     } else {
-      tier = 'urgent';
       tierLabel = 'Urgent Action Needed';
       tierClass = 'tier-urgent';
       message = "Your listing needs a rebuild. Right now, you're losing customers to competitors every single day. A proper audit and visual overhaul could dramatically change your results.";
@@ -1006,17 +876,6 @@
         message: message
       })
     }).catch(err => console.log('Webhook error:', err));
-
-    // Breakdown bars
-    sectionScores.forEach((s, i) => {
-      const pctBar = (s / sectionMax[i]) * 100;
-      const barId = 'bar-' + sectionNames[i];
-      const scoreId = 'score-' + sectionNames[i];
-      setTimeout(() => {
-        document.getElementById(barId).style.width = pctBar + '%';
-        document.getElementById(scoreId).textContent = s + '/20';
-      }, 300 + i * 100);
-    });
 
     window.scrollTo({top: 0, behavior: 'smooth'});
   }
